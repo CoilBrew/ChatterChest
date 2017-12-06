@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const Header = (props) => {
-    return (
-        <div>
-            <h1>ChatterChest</h1>
-            <h3>Welcome {props.username}</h3>
-        </div>
-    );
-}
+const Header = () => <h1 className="MainHeader">ChatterChest</h1>
+
+const WelcomeMessage = (props) => <h3>Welcome {props.username}</h3>
 
 const Messages = (props) => {
     return (
@@ -16,7 +11,7 @@ const Messages = (props) => {
     );
 }
 
-const SubmitMessage = (props) => {
+const SubmitMessage = () => {
     return (
         <div>
             <form action="">  
@@ -37,9 +32,12 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header username={this.state.username} />
-                <Messages />
-                <SubmitMessage />
+                <Header />
+                <div className="BelowTitle">
+                    <WelcomeMessage username={this.state.username} />
+                    <Messages />
+                    <SubmitMessage />
+                </div>
             </div>
         );
     }
