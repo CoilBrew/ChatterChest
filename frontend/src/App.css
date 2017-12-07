@@ -8,5 +8,12 @@
 .BelowTitle {
     position: absolute;
     left: 10%;
-    top: 10%;    
+    top: 10%;
+    width: 90%;
+}
+
+.OnlineUsers {
+    position: absolute;
+    top: 20%;
+    right: 20%;
 }

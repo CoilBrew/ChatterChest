@@ -11,6 +11,19 @@ const Messages = (props) => {
     );
 }
 
+const OnlineUsers = (props) => {
+    return (
+        <div className="OnlineUsers">
+            <h3>Online Users</h3>
+            <ul>
+                {props.online.map(u => {
+                    return (<li>{u}</li>);
+                })}
+            </ul>
+        </div>
+    );
+}
+
 const SubmitMessage = () => {
     return (
         <div>
@@ -25,7 +38,8 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = ({
-            username: "user01"
+            username: "user01",
+            online: ["user01", "user02"]
         });
     }
 
@@ -37,6 +51,7 @@ class App extends Component {
                     <WelcomeMessage username={this.state.username} />
                     <Messages />
                     <SubmitMessage />
+                    <OnlineUsers online={this.state.online} />
                 </div>
             </div>
         );
