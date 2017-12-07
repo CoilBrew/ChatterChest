@@ -11,14 +11,14 @@ const Messages = (props) => {
     );
 }
 
+const listify = (x) => <li>{x}</li>
+
 const OnlineUsers = (props) => {
     return (
         <div className="OnlineUsers">
             <h3>Online Users</h3>
             <ul>
-                {props.online.map(u => {
-                    return (<li>{u}</li>);
-                })}
+                {props.online.map(listify)}
             </ul>
         </div>
     );
