@@ -28,7 +28,7 @@ const SubmitMessage = () => {
     return (
         <div>
             <form action="">  
-                <input/><button>Send</button>
+                <input id="m" /><button>Send</button>
             </form>
         </div>
     );

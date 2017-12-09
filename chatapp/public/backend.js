@@ -6,12 +6,13 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/static/js/main.d7948d81.js', function(req, res){
-  res.sendFile(__dirname + '/static/js/main.d7948d81.js');
+// Because these URLS are subject to change (anytime you run npm run build)
+// we are using a regex to match them and find the corresponding file to serve
+app.get(/static\/js\/.*/, function(req, res){
+  res.sendFile(__dirname + req.url);
 });
-
-app.get('/static/css/main.562ff172.css', function(req, res){
-  res.sendFile(__dirname + '/static/css/main.562ff172.css');
+app.get(/static\/css\/.*/, function(req, res){
+  res.sendFile(__dirname + req.url);
 });
 
 io.on('connection', function(socket){
