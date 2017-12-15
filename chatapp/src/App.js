@@ -27,7 +27,7 @@ const OnlineUsers = (props) => {
 const SubmitMessage = () => {
     return (
         <div>
-            <form action="">  
+            <form action="">
                 <input id="m" /><button>Send</button>
             </form>
         </div>
