@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
+import Header from './Components/Header';
+import WelcomeMessage from './Components/WelcomeMessage';
+import Messages from './Components/Messages';
 import './css/main.css';
-
-const Header = () => <h1 className="MainHeader">ChatterChest</h1>
-
-const WelcomeMessage = (props) => <h3>Welcome {props.username}</h3>
-
-const Messages = (props) => <div><ul></ul></div>
-
-const listify = (x) => <li>{x}</li>
 
 const OnlineUsers = (props) => {
     return (
         <div className="OnlineUsers">
             <h3>Online Users</h3>
             <ul>
-                {props.online.map(listify)}
+                {props.online.map((x) => <li>{x}</li>)}
             </ul>
         </div>
     );
@@ -42,7 +37,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header header="ChatterChest" />
                 <div className="BelowTitle">
                     <WelcomeMessage username={this.state.username} />
                     <Messages />
