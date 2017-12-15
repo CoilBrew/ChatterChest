@@ -3,7 +3,6 @@
 ## Run 
 
 ```
-npm run build
-cd build
-node backend.js
+1. ./run.sh
+2. Load up `http://localhost:3000/`
 ```
