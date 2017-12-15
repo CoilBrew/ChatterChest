@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/main.css';
 
 const Header = () => <h1 className="MainHeader">ChatterChest</h1>
 

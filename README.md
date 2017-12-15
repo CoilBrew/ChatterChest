@@ -1,8 +1,8 @@
 # Chatapp
 
-## Run 
+## Usage
 
 ```
-1. ./run.sh
+1. Run `./run.sh`
 2. Load up `http://localhost:3000/`
 ```
