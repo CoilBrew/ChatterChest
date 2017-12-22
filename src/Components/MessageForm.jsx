@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
-const MessageForm = () => {
+const MessageForm = ({handleMessageChange, handleSubmit, message}) => {
     return (
         <div>
-            <form action="">
-                <input id="m" /><button>Send</button>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={message}
+                    onChange={handleMessageChange}
+                />
+                <input type="submit" value="Submit" />
             </form>
         </div>
     );
