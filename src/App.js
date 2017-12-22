@@ -14,10 +14,14 @@ class App extends Component {
         this.state = ({
             username: "user01",
             online: ["user01", "user02"],
-            message: null
+            message: null,
+            messages: []
         });
     }
 
+    componentDidMount(){
+        this.handleMessageUpdate()
+    }
 
     handleSubmit(event) {
         event.preventDefault()
@@ -25,13 +29,23 @@ class App extends Component {
             this.setState({ message: '' })
         }
 
+    handleMessageUpdate() {
+        socket.on('chat message', (msg) => {
+        var currentMessages = this.state.messages
+        currentMessages.push(msg);
+        this.setState({messages: currentMessages});
+        });
+    }
+
     render() {
         return (
             <div>
                 <Header header="ChatterChest" />
                 <div className="BelowTitle">
                     <WelcomeMessage username={this.state.username} />
-                    <Messages />
+                    <Messages
+                        messages={this.state.messages}
+                    />
                     <MessageForm
                         message={this.state.message}
                         handleMessageChange={(event) => this.setState({message:event.target.value})}
