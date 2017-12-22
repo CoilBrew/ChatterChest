@@ -2,6 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var messages = [];
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
@@ -15,12 +17,15 @@ app.get(/static\/(css|js)\/.*/, (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+      console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-    console.log('message: ' + msg);
+      messages.push(msg);
+      io.emit('messages', messages);
   });
+  socket.on('request messages', () => {
+      io.emit('messages', (messages));
+  })
 });
 
 http.listen(3000, () => {

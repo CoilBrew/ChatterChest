@@ -14,7 +14,7 @@ class App extends Component {
         this.state = ({
             username: "user01",
             online: ["user01", "user02"],
-            message: null,
+            message:"",
             messages: []
         });
     }
@@ -24,16 +24,17 @@ class App extends Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault()
-        socket.emit('chat message', this.state.message)
-            this.setState({ message: '' })
-        }
+        event.preventDefault();
+        socket.emit('chat message', this.state.message);
+        this.setState({message: ""})
+    }
 
     handleMessageUpdate() {
-        socket.on('chat message', (msg) => {
-        var currentMessages = this.state.messages
-        currentMessages.push(msg);
-        this.setState({messages: currentMessages});
+        //When the component mounts, sends out a request for messages
+        socket.emit('request messages');
+        // When the component mounts, sets up a listener for 'messages'
+        socket.on('messages', (messages) => {
+            this.setState({messages: messages});
         });
     }
 
