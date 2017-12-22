@@ -18,7 +18,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header header="ChatterChest" />
+                <div className="blue">
+                    <Header header="ChatterChest" />
+                </div>
                 <div className="BelowTitle">
                     <WelcomeMessage username={this.state.username} />
                     <Messages />
