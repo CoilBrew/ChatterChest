@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 
 const Messages = ({messages}) => {
 
-    const messageLog = messages.map ( (message) => {
-        return ( <p>{message}</p>)
-    });
-
     return (
         <div>
-            {messageLog}
+            {messages.map((message) => <p>{message}</p>)}
         </div>
     )
 }
