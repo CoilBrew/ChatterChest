@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Header = (props) => <h1 className="MainHeader">{props.header}</h1>
 
