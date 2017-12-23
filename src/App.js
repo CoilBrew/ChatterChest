@@ -14,19 +14,19 @@ class App extends Component {
         this.state = ({
             username: "user01",
             online: ["user01", "user02"],
-            message:"",
+            message: "",
             messages: []
         });
     }
 
     componentDidMount(){
-        this.handleMessageUpdate()
+        this.handleMessageUpdate();
     }
 
     handleSubmit(event) {
         event.preventDefault();
         socket.emit('chat message', this.state.message);
-        this.setState({message: ""})
+        this.setState({message: ""});
     }
 
     handleMessageUpdate() {
@@ -51,7 +51,7 @@ class App extends Component {
                     />
                     <MessageForm
                         message={this.state.message}
-                        handleMessageChange={(event) => this.setState({message:event.target.value})}
+                        handleMessageChange={(event) => this.setState({message: event.target.value})}
                         handleSubmit={(event) => this.handleSubmit(event)}
                     />
                     <OnlineUsers online={this.state.online} />

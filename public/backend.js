@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var getTimestamp = require('../src/utility.js');
 
 var messages = [];
 
@@ -20,7 +21,11 @@ io.on('connection', (socket) => {
       console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-      messages.push(msg);
+      messages.push([
+        msg,
+        getTimestamp()
+      ]);
+      
       io.emit('messages', messages);
   });
   socket.on('request messages', () => {
