@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
       messages.push([
         msg,
-        getTimestamp()
+        getTimestamp(new Date())
       ]);
       
       io.emit('messages', messages);

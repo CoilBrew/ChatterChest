@@ -1,6 +1,5 @@
-const getTimestamp = () => {
-    const d = new Date();
-    return d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+const getTimestamp = (date) => {
+    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 }
 
 module.exports = getTimestamp;
