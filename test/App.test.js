@@ -1,10 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from '../src/App';
 
-it('renders without crashing', () => {
-    expect(1)
-      .toEqual(1)
-      .toBeGreaterThan(0);
+it('test that the testing is working', () => {
+    expect(1).toEqual(1);
 });
 
