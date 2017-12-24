@@ -6,22 +6,7 @@ var named = require('vinyl-named');
 var browserSync = require('browser-sync').create();
 var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
-
 var config = require('./webpack.config.js');
-
-gulp.task('developReact', ['webpack'], function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        },
-        startPath : "public/index.html"
-    });
-    gulp.watch('src/**/*', ['webpack-watch']);
-});
-gulp.task('webpack-watch', ['webpack'], function (done) {
-    browserSync.reload();
-    done();
-});
 
 gulp.task("webpack", function() {
     var stream =
