@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Components/Header';
-import WelcomeMessage from './Components/WelcomeMessage';
-import Messages from './Components/Messages';
-import OnlineUsers from './Components/OnlineUsers';
-import MessageForm from './Components/MessageForm';
-import './css/main.css';
+import Header from './Components/Header.jsx';
+import WelcomeMessage from './Components/WelcomeMessage.jsx';
+import Messages from './Components/Messages.jsx';
+import OnlineUsers from './Components/OnlineUsers.jsx';
+import MessageForm from './Components/MessageForm.jsx';
+// import './css/main.css';
 import io from 'socket.io-client'
 let socket = io()
 
