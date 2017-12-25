@@ -39,6 +39,5 @@ io.on('connection', (socket) => {
 });
 
 http.listen(3000, () => {
-var test = path.resolve(__dirname + '/../build');
   console.log('listening on *:3000');
 })
