@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var path = require('path');
 
 var messages = [];
 
@@ -9,7 +10,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-  res.sendFile(__dirname + "/index.js");
+  var build = path.resolve(__dirname + '/../build');
+  res.sendFile(build + "/src/index.js");
 });
 
 // Because these URLS are subject to change (anytime you run npm run build)
@@ -33,6 +35,6 @@ io.on('connection', (socket) => {
 });
 
 http.listen(3000, () => {
-console.log(__dirname + '/index.html');
+var test = path.resolve(__dirname + '/../build');
   console.log('listening on *:3000');
 })

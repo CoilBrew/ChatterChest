@@ -8,18 +8,13 @@ var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
 var config = require('./webpack.config.js');
 
-gulp.task("webpack", function() {
+gulp.task("compile", function() {
     var stream =
         gulp.src(['src/index.jsx'])
         .pipe(named())
         .pipe(plumber())
         .pipe(webpack( config ))
         .pipe(gulp.dest("build/src"));
-    return stream;
-});
-
-gulp.task("backendJS", function() {
-    var stream =
         gulp.src(['public/backend.js'])
         .pipe(named())
         .pipe(plumber())
@@ -43,12 +38,17 @@ gulp.task('develop', ['watch'], function() {
         browser: "google chrome",
         port: 7000,
 	});
+    gulp.watch('src/**/*', ['compile-watch']);
+});
+gulp.task('compile-watch', ['compile'], function (done) {
+    browserSync.reload();
+    done();
 });
 
-gulp.task('watch', ['webpack', 'backendJS', 'BSRefresh'], function () {
+gulp.task('watch', ['compile',], function () {
   var stream = nodemon({
-                 script: 'build/src/backend.js' // run ES5 code
-               , watch: 'src' // watch ES2015 code
-               , tasks: ['webpack','backendJS','BSRefresh'] // compile synchronously onChange
+                 script: 'public/backend.js' // run ES5 code
+               , watch: 'src/**/*' // watch ES2015 code
+               , tasks: ['compile-watch'] // compile synchronously onChange
                })
            });
