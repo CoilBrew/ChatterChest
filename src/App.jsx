@@ -1,5 +1,3 @@
-//To do, fix CSS loader
-
 import React, { Component } from 'react';
 import Header from './Components/Header.jsx';
 import WelcomeMessage from './Components/WelcomeMessage.jsx';

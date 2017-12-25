@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var getTimestamp = require('../src/utility.js');
 var path = require('path');
 
 var messages = [];
@@ -9,7 +10,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/test', (req, res) => {
+app.get('/react-jsx', (req, res) => {
   var build = path.resolve(__dirname + '/../build');
   res.sendFile(build + "/src/index.js");
 });
@@ -26,7 +27,10 @@ io.on('connection', (socket) => {
       console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-      messages.push(msg);
+           messages.push({
+      content: msg,
+      timestamp: getTimestamp(new Date())
+    });
       io.emit('messages', messages);
   });
   socket.on('request messages', () => {

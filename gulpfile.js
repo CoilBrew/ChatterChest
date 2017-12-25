@@ -15,14 +15,6 @@ gulp.task("compile", function() {
         .pipe(plumber())
         .pipe(webpack( config ))
         .pipe(gulp.dest("build/src"));
-        gulp.src(['public/backend.js'])
-        .pipe(named())
-        .pipe(plumber())
-        .pipe(gulp.dest("build/src"));
-        gulp.src(['public/index.html'])
-        .pipe(named())
-        .pipe(plumber())
-        .pipe(gulp.dest("build/src"));
     return stream;
 })
 
