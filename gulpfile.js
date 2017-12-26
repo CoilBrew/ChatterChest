@@ -18,11 +18,6 @@ gulp.task("compile", function() {
     return stream;
 })
 
-gulp.task('BSRefresh', function (done) {
-    browserSync.reload();
-    done();
-});
-
 gulp.task('develop', ['watch'], function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
