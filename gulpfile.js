@@ -4,7 +4,6 @@ var plumber = require('gulp-plumber');
 var webpack = require('webpack-stream');
 var named = require('vinyl-named');
 var browserSync = require('browser-sync').create();
-var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
 var config = require('./webpack.config.js');
 
