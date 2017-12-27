@@ -19,11 +19,6 @@ gulp.task("compile", function() {
     return stream;
 })
 
-gulp.task('BSRefresh', function (done) {
-    browserSync.reload();
-    done();
-});
-
 gulp.task('test', function() {
     exec('npm test', function (err, stdout, sterr) {
         console.log(stdout);
