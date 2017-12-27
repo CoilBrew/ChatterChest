@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Components/Header';
-import WelcomeMessage from './Components/WelcomeMessage';
-import Messages from './Components/Messages';
-import OnlineUsers from './Components/OnlineUsers';
-import MessageForm from './Components/MessageForm';
-import './css/main.css';
+import Header from './Components/Header.jsx';
+import WelcomeMessage from './Components/WelcomeMessage.jsx';
+import Messages from './Components/Messages.jsx';
+import OnlineUsers from './Components/OnlineUsers.jsx';
+import MessageForm from './Components/MessageForm.jsx';
 import io from 'socket.io-client'
 let socket = io()
 
@@ -33,6 +32,7 @@ class App extends Component {
         //When the component mounts, sends out a request for messages
         socket.emit('request messages');
         // When the component mounts, sets up a listener for 'messages'
+        // When messages recieved, updates the state
         socket.on('messages', (messages) => {
             this.setState({messages: messages});
         });
