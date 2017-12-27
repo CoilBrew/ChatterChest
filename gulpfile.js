@@ -34,7 +34,7 @@ gulp.task('compile-watch', ['compile'], function (done) {
 gulp.task('watch', ['compile',], function () {
   var stream = nodemon({
                  script: 'public/backend.js' // run ES5 code
-               , watch: ['src/**/*','public/'], // watch ES2015 code
+               , watch: ['src/**/*','public/'] // watch ES2015 code
                , tasks: ['compile-watch'] // compile synchronously onChange
                })
            });
