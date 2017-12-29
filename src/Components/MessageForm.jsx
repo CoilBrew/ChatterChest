@@ -14,10 +14,10 @@ const MessageForm = (props) => {
                     onBlur={props.handleBlur}
                 />
                 <input 
-                    id="submitButton" 
-                    className="submitButton" 
-                    type="submit" 
-                    value="Submit" 
+                    id="submitButton"
+                    className="submitButton"
+                    type="submit"
+                    value="Submit"
                     onClick={props.styleSubmit}
                     onBlur={props.removeStyledSubmit}
                 />

@@ -21,12 +21,15 @@ io.on('connection', (socket) => {
       console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-      messages.push({
-        content: msg,
-        timestamp: getTimestamp(new Date())
-      });
-      
-      io.emit('messages', messages);
+      if (msg) {
+          // If not empty
+          messages.push({
+            content: msg,
+            timestamp: getTimestamp(new Date())
+          });
+          
+          io.emit('messages', messages);
+      }
   });
   socket.on('request messages', () => {
       io.emit('messages', (messages));
