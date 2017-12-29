@@ -8,6 +8,15 @@ import './css/main.css';
 import io from 'socket.io-client'
 let socket = io()
 
+// IK, this is horrible
+// Let's think of a better way of naming and sorting all this
+const changeCSS = (id) => document.getElementById(id).className = "textbox textbox--highlighted";
+const changeCSS2 = (id) => document.getElementById(id).className = "textbox textbox--unhighlighted";
+
+const submitButtonEffect = (id) => document.getElementById(id).className = "submitButton submitButton--effect";
+const submitButtonEffect2 = (id) => document.getElementById(id).className = "submitButton";
+// End
+
 class App extends Component {
     constructor(props) {
         super(props)
@@ -53,6 +62,10 @@ class App extends Component {
                         message={this.state.message}
                         handleMessageChange={(event) => this.setState({message: event.target.value})}
                         handleSubmit={(event) => this.handleSubmit(event)}
+                        handleClick={() => changeCSS("textbox1")}
+                        handleBlur={() => changeCSS2("textbox1")}
+                        styleSubmit={() => submitButtonEffect("submitButton")}
+                        removeStyledSubmit={() => submitButtonEffect2("submitButton")}
                     />
                     <OnlineUsers online={this.state.online} />
                 </div>

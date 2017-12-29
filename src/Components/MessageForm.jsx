@@ -1,15 +1,26 @@
 import React from 'react';
 
-const MessageForm = ({handleMessageChange, handleSubmit, message}) => {
+const MessageForm = (props) => {
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="messageForm">
+            <form onSubmit={props.handleSubmit}>
                 <input
+                    id="textbox1"
+                    className="textbox textbox--unhighlighted"
                     type="text"
-                    value={message}
-                    onChange={handleMessageChange}
+                    value={props.message}
+                    onChange={props.handleMessageChange}
+                    onClick={props.handleClick}
+                    onBlur={props.handleBlur}
                 />
-                <input type="submit" value="Submit" />
+                <input 
+                    id="submitButton" 
+                    className="submitButton" 
+                    type="submit" 
+                    value="Submit" 
+                    onClick={props.styleSubmit}
+                    onBlur={props.removeStyledSubmit}
+                />
             </form>
         </div>
     );
