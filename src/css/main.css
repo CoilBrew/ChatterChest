@@ -76,6 +76,11 @@ body {
     color: rgb(13, 13, 129) !important;;
 }
 
+.message {
+    margin: 0;
+    padding-bottom: 6px;
+}
+
 /* Utility */
 
 .blue {
