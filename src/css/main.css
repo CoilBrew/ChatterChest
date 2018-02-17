@@ -37,50 +37,6 @@ body {
     margin-bottom: 16px;
 }
 
-.messageForm {
-    position: absolute;
-    height: 32px;
-    width: 50%;
-    margin-bottom: 100px;
-}
-
-.textbox {
-    position: absolute;
-    box-sizing: border-box;
-    height: 100%;
-    width: 70%;
-    padding: 0;
-}
-
-.textbox--unhighlighted {
-    border: 1px solid rgb(0, 0, 0);
-}
-
-.textbox--highlighted {
-    border: 3px solid rgb(17, 50, 238);
-}
-
-.submitButton {
-    position: absolute;
-    box-sizing: border-box;
-    height: 100%;
-    left: 70%;
-    margin-left: 18px;
-    border: 1px solid rgb(0, 0, 0);
-    background-color: rgb(13, 13, 129);
-    color: white;
-}
-
-.submitButton--effect {
-    background-color:white !important;
-    color: rgb(13, 13, 129) !important;;
-}
-
-.message {
-    margin: 0;
-    padding-bottom: 6px;
-}
-
 /* Utility */
 
 .blue {

@@ -1,12 +1,18 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var { getTimestamp } = require('../src/utility.js');
+var getTimestamp = require('../src/utility.js');
+var path = require('path');
 
 var messages = [];
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/react-jsx', (req, res) => {
+  var build = path.resolve(__dirname + '/../build');
+  res.sendFile(build + "/src/index.js");
 });
 
 // Because these URLS are subject to change (anytime you run npm run build)
@@ -21,15 +27,11 @@ io.on('connection', (socket) => {
       console.log('user disconnected');
   });
   socket.on('chat message', (msg) => {
-      if (msg) {
-          // If not empty
-          messages.push({
-            content: msg,
-            timestamp: getTimestamp(new Date())
-          });
-          
-          io.emit('messages', messages);
-      }
+           messages.push({
+      content: msg,
+      timestamp: getTimestamp(new Date())
+    });
+      io.emit('messages', messages);
   });
   socket.on('request messages', () => {
       io.emit('messages', (messages));
