@@ -41,10 +41,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className="blue">
-                    <Header header="ChatterChest" />
-                </div>
                 <div className="grid">
+                    <div className="grid-row">
+                        <div className="grid-1-1">
+                            <div className="blue">
+                                <Header header="ChatterChest" />
+                            </div>
+                        </div>
+                    </div>
                     <div className="grid-row">
                         <div className="grid-1-3">
                             <WelcomeMessage username={this.state.username} />
