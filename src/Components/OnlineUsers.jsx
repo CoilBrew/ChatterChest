@@ -2,7 +2,7 @@ import React from 'react';
 
 const OnlineUsers = (props) => {
     return (
-        <div className="OnlineUsers leftline">
+        <div>
             <h3>Online Users</h3>
             <h3>THIS IS HARDCODED ATM</h3>
             <ul>

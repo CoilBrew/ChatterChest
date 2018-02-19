@@ -44,17 +44,27 @@ class App extends Component {
                 <div className="blue">
                     <Header header="ChatterChest" />
                 </div>
-                <div className="BelowTitle">
-                    <WelcomeMessage username={this.state.username} />
-                    <Messages
-                        messages={this.state.messages}
-                    />
-                    <MessageForm
-                        message={this.state.message}
-                        handleMessageChange={(event) => this.setState({message: event.target.value})}
-                        handleSubmit={(event) => this.handleSubmit(event)}
-                    />
-                    <OnlineUsers online={this.state.online} />
+                <div className="grid">
+                    <div className="grid-row">
+                        <div className="grid-1-3">
+                            <WelcomeMessage className="grid-1-3" username={this.state.username} />
+                        </div>
+                        <div className="grid-1-3">
+                            <Messages className="grid-1-3"
+                                messages={this.state.messages}
+                            />
+                        </div>
+                        <div className="grid-1-3">
+                            <MessageForm className="grid-1-3"
+                                message={this.state.message}
+                                handleMessageChange={(event) => this.setState({message: event.target.value})}
+                                handleSubmit={(event) => this.handleSubmit(event)}
+                            />
+                        </div>
+                        <div className="grid-1-3">
+                            <OnlineUsers online={this.state.online} />
+                        </div>
+                    </div>
                 </div>
             </div>
         );
