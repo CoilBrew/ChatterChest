@@ -54,7 +54,7 @@ class App extends Component {
                             <WelcomeMessage username={this.state.username} />
                         </div>
                         <div className="grid-1-3">
-                            <Messages
+                            Messages: <Messages
                                 messages={this.state.messages}
                             />
                         </div>
