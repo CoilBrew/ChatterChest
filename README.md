@@ -3,6 +3,13 @@
 ## Usage
 
 ```
-1. Run `./run.sh`
-2. Load up `http://localhost:3000/`
+1. npm install
+2. gulp develop
 ```
+
+To compile SASS run:
+
+```
+gulp sass
+```
+
