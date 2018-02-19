@@ -1,3 +1,5 @@
+'use strict';
+ 
 var gulp = require("gulp");
 var watch = require('gulp-watch');
 var plumber = require('gulp-plumber');
@@ -6,6 +8,17 @@ var named = require('vinyl-named');
 var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
 var config = require('./webpack.config.js');
+var sass = require('gulp-sass');
+ 
+gulp.task('sass', function () {
+  return gulp.src('./src/scss/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/css'));
+});
+ 
+gulp.task('sasswatch', function () {
+  gulp.watch('./src/scss', ['sass']);
+});
 
 gulp.task("compile", function() {
     var stream =
@@ -26,6 +39,7 @@ gulp.task('develop', ['watch'], function() {
 	});
     gulp.watch('src/**/*', ['compile-watch']);
 });
+
 gulp.task('compile-watch', ['compile'], function (done) {
     browserSync.reload();
     done();
