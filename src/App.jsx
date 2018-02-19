@@ -47,15 +47,15 @@ class App extends Component {
                 <div className="grid">
                     <div className="grid-row">
                         <div className="grid-1-3">
-                            <WelcomeMessage className="grid-1-3" username={this.state.username} />
+                            <WelcomeMessage username={this.state.username} />
                         </div>
                         <div className="grid-1-3">
-                            <Messages className="grid-1-3"
+                            <Messages
                                 messages={this.state.messages}
                             />
                         </div>
                         <div className="grid-1-3">
-                            <MessageForm className="grid-1-3"
+                            <MessageForm
                                 message={this.state.message}
                                 handleMessageChange={(event) => this.setState({message: event.target.value})}
                                 handleSubmit={(event) => this.handleSubmit(event)}
