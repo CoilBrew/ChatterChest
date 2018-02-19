@@ -40,12 +40,12 @@ gulp.task('develop', ['watch'], function() {
     gulp.watch('src/**/*', ['compile-watch']);
 });
 
-gulp.task('compile-watch', ['compile'], function (done) {
+gulp.task('compile-watch', ['compile', 'sass'], function (done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('watch', ['compile',], function () {
+gulp.task('watch', ['compile'], function () {
   var stream = nodemon({
                  script: 'public/backend.js' // run ES5 code
                , watch: ['src/**/*','public/'] // watch ES2015 code
