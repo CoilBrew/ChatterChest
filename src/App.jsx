@@ -40,8 +40,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="bg-black">
-                <div className="grid p-0-10 bg-white">
+            <div>
+                <div className="grid p-0-10">
                         <div className="grid-1-1">
                             <div className="blue">
                                 <Header header="ChatterChest" />
