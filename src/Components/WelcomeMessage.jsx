@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WelcomeMessage = (props) => (
-    <div>
+    <div className="text-align-center">
         <h3>Welcome {props.username}</h3>
     </div>
 );

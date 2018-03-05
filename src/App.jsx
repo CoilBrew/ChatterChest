@@ -41,21 +41,21 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className="grid p-0-10">
+                <div className="grid p-0-5">
                         <div className="grid-1-1">
                             <div className="blue">
                                 <Header header="ChatterChest" />
                             </div>
                         </div>
-                        <div className="grid-1-3">
+                        <div className="grid-1-1">
                             <WelcomeMessage username={this.state.username} />
                         </div>
-                        <div className="grid-1-3">
+                        <div className="grid-1-2">
                             Messages: <Messages
                                 messages={this.state.messages}
                             />
                         </div>
-                        <div className="grid-1-3">
+                        <div className="grid-1-2">
                             <MessageForm
                                 message={this.state.message}
                                 handleMessageChange={(event) => this.setState({message: event.target.value})}
